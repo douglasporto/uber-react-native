@@ -1,0 +1,3 @@
+rootProject.name = 'uberInterface'
+
+include ':app'
