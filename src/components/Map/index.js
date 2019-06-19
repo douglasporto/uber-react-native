@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { View } from 'react-native';
+import { View, Image } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import Geocoder from 'react-native-geocoding';
 
@@ -7,9 +7,12 @@ import { getPixelSize } from '../../utils';
 
 import Search from '../Search';
 import Directions from '../Directions';
+import Details from '../Details';
 
 import markerImage from '../../assets/marker.png';
+import backImage from '../../assets/back.png';
 import {
+  Back,
   LocationBox,
   LocationBoxOrigin,
   LocationText,
@@ -24,7 +27,8 @@ export default class Map extends Component {
     region: null,
     destination: null,
     duration: null,
-    location: null
+    location: null,
+    price: null
   };
   async componentDidMount() {
     navigator.geolocation.getCurrentPosition(
@@ -63,8 +67,18 @@ export default class Map extends Component {
       }
     });
   };
+  handleBack = () => {
+    this.setState({ destination: null });
+  };
+  handlePrice = duration => {
+    let price = duration * 0.4;
+    return price.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    });
+  };
   render() {
-    const { region, destination, duration, location } = this.state;
+    const { region, destination, duration, location, price } = this.state;
     return (
       <View style={{ flex: 1 }}>
         <MapView
@@ -81,12 +95,17 @@ export default class Map extends Component {
                 destination={destination}
                 onReady={result => {
                   this.setState({ duration: Math.floor(result.duration) });
+                  this.setState({
+                    price: result => {
+                      Math.floor(result.duration);
+                    }
+                  });
                   this.mapView.fitToCoordinates(result.coordinates, {
                     edgePadding: {
                       right: getPixelSize(50),
                       left: getPixelSize(50),
                       top: getPixelSize(50),
-                      bottom: getPixelSize(50)
+                      bottom: getPixelSize(350)
                     }
                   });
                 }}
@@ -113,7 +132,16 @@ export default class Map extends Component {
             </Fragment>
           )}
         </MapView>
-        <Search onLocationSelected={this.handleLocationSelected} />
+        {destination ? (
+          <Fragment>
+            <Back onPress={this.handleBack}>
+              <Image source={backImage} />
+            </Back>
+            <Details price={this.handlePrice(duration)} />
+          </Fragment>
+        ) : (
+          <Search onLocationSelected={this.handleLocationSelected} />
+        )}
       </View>
     );
   }
