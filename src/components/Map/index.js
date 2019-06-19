@@ -1,21 +1,40 @@
 import React, { Component, Fragment } from 'react';
 import { View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+import Geocoder from 'react-native-geocoding';
+
 import { getPixelSize } from '../../utils';
 
 import Search from '../Search';
 import Directions from '../Directions';
 
 import markerImage from '../../assets/marker.png';
+import {
+  LocationBox,
+  LocationBoxOrigin,
+  LocationText,
+  LocationTimeBox,
+  LocationTimeText,
+  LocationTimeTextSmall
+} from './styles';
+
+Geocoder.init('AIzaSyBxLPBCilS_zmFRpDGMuzdMk66THz9W21I');
 export default class Map extends Component {
   state = {
     region: null,
-    destination: null
+    destination: null,
+    duration: null,
+    location: null
   };
   async componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       async ({ coords: { latitude, longitude } }) => {
+        const response = await Geocoder.from({ latitude, longitude });
+        const address = response.results[0].formatted_address;
+        const location = address.substring(0, address.indexOf('-'));
+        // const location = address;
         this.setState({
+          location,
           region: {
             latitude,
             longitude,
@@ -45,7 +64,7 @@ export default class Map extends Component {
     });
   };
   render() {
-    const { region, destination } = this.state;
+    const { region, destination, duration, location } = this.state;
     return (
       <View style={{ flex: 1 }}>
         <MapView
@@ -61,6 +80,7 @@ export default class Map extends Component {
                 origin={region}
                 destination={destination}
                 onReady={result => {
+                  this.setState({ duration: Math.floor(result.duration) });
                   this.mapView.fitToCoordinates(result.coordinates, {
                     edgePadding: {
                       right: getPixelSize(50),
@@ -75,7 +95,21 @@ export default class Map extends Component {
                 coordinate={destination}
                 anchor={{ x: 0, y: 0 }}
                 image={markerImage}
-              />
+              >
+                <LocationBox>
+                  <LocationText>{destination.title}</LocationText>
+                </LocationBox>
+              </Marker>
+
+              <Marker coordinate={region} anchor={{ x: 0, y: 0 }}>
+                <LocationBoxOrigin>
+                  <LocationTimeBox>
+                    <LocationTimeText>{duration}</LocationTimeText>
+                    <LocationTimeTextSmall>MIN</LocationTimeTextSmall>
+                  </LocationTimeBox>
+                  <LocationText>{location}</LocationText>
+                </LocationBoxOrigin>
+              </Marker>
             </Fragment>
           )}
         </MapView>
