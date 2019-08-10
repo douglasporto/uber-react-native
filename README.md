@@ -40,11 +40,11 @@
 
 This project was developed at the [RocketSeat Youtube Channel](https://www.youtube.com/channel/UCSfwM5u0Kce6Cce8_S72olg) with the following technologies:
 
- -  [ReactJS](https://reactjs.org/)
- -  [React Native](https://facebook.github.io/react-native/)
- -  [Xcode](https://developer.apple.com/xcode/)
- -  [styled-components](https://www.styled-components.com/)
- -  [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
+- [ReactJS](https://reactjs.org/)
+- [React Native](https://facebook.github.io/react-native/)
+- [Xcode](https://developer.apple.com/xcode/)
+- [styled-components](https://www.styled-components.com/)
+- [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
 
 ## :information_source: How To Use
 
