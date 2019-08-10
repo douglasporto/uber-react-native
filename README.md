@@ -34,7 +34,7 @@
   <a href="#memo-license">License</a>
 </p>
 
-![App Screenshot](https://github.com/douglasporto/uber-react-native/blob/master/public/image/screenshoot.png)
+![App Screenshot](https://github.com/douglasporto/uber-react-native/blob/master/public/image/screenshot.png)
 
 ## :rocket: Technologies
 
