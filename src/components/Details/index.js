@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { View } from 'react-native';
+import { View } from "react-native";
 
-import uberx from '../../assets/uberx.png';
+import uberx from "../../assets/uberx.png";
 
 import {
   Container,
@@ -11,7 +11,7 @@ import {
   TypeImage,
   RequestButton,
   RequestButtonText
-} from './styles';
+} from "./styles";
 
 export default class Details extends Component {
   render() {

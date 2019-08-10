@@ -19,9 +19,9 @@ import {
   LocationTimeBox,
   LocationTimeText,
   LocationTimeTextSmall
-} from './styles';
+} from "./styles";
 
-Geocoder.init('AIzaSyBxLPBCilS_zmFRpDGMuzdMk66THz9W21I');
+Geocoder.init("AIzaSyBxLPBCilS_zmFRpDGMuzdMk66THz9W21I");
 export default class Map extends Component {
   state = {
     region: null,
@@ -72,9 +72,9 @@ export default class Map extends Component {
   };
   handlePrice = duration => {
     let price = duration * 0.4;
-    return price.toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
+    return price.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL"
     });
   };
   render() {
