@@ -13,7 +13,7 @@
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/douglasporto/uber-react-native.svg">
 
   <a href="https://www.codacy.com/app/douglasporto/uber-react-native?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=douglasporto/uber-react-native&amp;utm_campaign=Badge_Grade">
-    <img alt="Codacy grade" src="https://api.codacy.com/project/badge/Grade/1ca82febe92a47e4a9a03d6621617cc0">
+    <img alt="Codacy grade" src="https://api.codacy.com/project/badge/Grade/f61b39d3b1354bb9b804612d1d026e9b">
   </a>
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/douglasporto/uber-react-native.svg">
