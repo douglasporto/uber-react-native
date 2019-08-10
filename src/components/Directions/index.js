@@ -1,5 +1,5 @@
-import React from 'react';
-import MapViewDirection from 'react-native-maps-directions';
+import React from "react";
+import MapViewDirection from "react-native-maps-directions";
 
 const Directions = ({ destination, origin, onReady }) => (
   <MapViewDirection

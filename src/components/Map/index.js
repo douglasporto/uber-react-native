@@ -1,16 +1,16 @@
-import React, { Component, Fragment } from 'react';
-import { View, Image } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
-import Geocoder from 'react-native-geocoding';
+import React, { Component, Fragment } from "react";
+import { View, Image } from "react-native";
+import MapView, { Marker } from "react-native-maps";
+import Geocoder from "react-native-geocoding";
 
-import { getPixelSize } from '../../utils';
+import { getPixelSize } from "../../utils";
 
-import Search from '../Search';
-import Directions from '../Directions';
-import Details from '../Details';
+import Search from "../Search";
+import Directions from "../Directions";
+import Details from "../Details";
 
-import markerImage from '../../assets/marker.png';
-import backImage from '../../assets/back.png';
+import markerImage from "../../assets/marker.png";
+import backImage from "../../assets/back.png";
 import {
   Back,
   LocationBox,

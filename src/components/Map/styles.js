@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components/native';
-import { Platform } from 'react-native';
+import styled, { css } from "styled-components/native";
+import { Platform } from "react-native";
 
 export const LocationBox = styled.View`
   background: #fff;
