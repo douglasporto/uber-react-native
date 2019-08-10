@@ -35,7 +35,7 @@ export default class Map extends Component {
       async ({ coords: { latitude, longitude } }) => {
         const response = await Geocoder.from({ latitude, longitude });
         const address = response.results[0].formatted_address;
-        const location = address.substring(0, address.indexOf('-'));
+        const location = address.substring(0, address.indexOf("-"));
         // const location = address;
         this.setState({
           location,
@@ -70,7 +70,7 @@ export default class Map extends Component {
   handleBack = () => {
     this.setState({ destination: null });
   };
-  handlePrice = duration => {
+  handlePrice = (duration) => {
     let price = duration * 0.4;
     return price.toLocaleString("pt-BR", {
       style: "currency",
@@ -86,17 +86,17 @@ export default class Map extends Component {
           region={region}
           showsUserLocation
           loadingEnabled
-          ref={el => (this.mapView = el)}
+          ref={(el) => (this.mapView = el)}
         >
           {destination && (
             <Fragment>
               <Directions
                 origin={region}
                 destination={destination}
-                onReady={result => {
+                onReady={(result) => {
                   this.setState({ duration: Math.floor(result.duration) });
                   this.setState({
-                    price: result => {
+                    price: (result) => {
                       Math.floor(result.duration);
                     }
                   });
