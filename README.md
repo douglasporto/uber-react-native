@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Go Stack logo" src="https://github.com/douglasporto/uber-react-native/blob/master/assets/logo-gostack.png" />
+    <img alt="uber logo" src="https://github.com/douglasporto/uber-react-native/blob/master/public/image/uber-logo.png" />
     <br>
     REACT NATIVE - UBER INTERFACE
 </h1>
